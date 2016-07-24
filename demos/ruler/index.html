@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>iScroll</title>
+    <style>
+      .rule {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      }
+      .tooth-container {
+      width: 1600px;
+      height: 100%;
+      background-color: #f0f0f0;
+      }
+      .tooth {
+      display: block;
+      float: left;
+      width: 100px;
+      height: 100px;
+      border-right: 1px black solid;
+      }
+    </style>
+    <script src="./iscroll-probe.js"></script>
+    <script src="./zepto.min.js"></script>
+  </head>
+  <body>
+    <div class="rule">
+      <div class="tooth-container">
+
+	<div class="tooth"></div>
+	<div class="tooth"></div>
+      	<div class="tooth"></div>
+      	<div class="tooth"></div>
+      	<div class="tooth"></div>
+	
+      	<div class="tooth"></div>
+      	<div class="tooth"></div>
+      	<div class="tooth"></div>
+      	<div class="tooth"></div>
+      	<div class="tooth"></div>
+	
+      	<div class="tooth"></div>
+      	<div class="tooth"></div>
+      	<div class="tooth"></div>
+      	<div class="tooth"></div>
+      	<div class="tooth"></div>
+	
+      </div>
+    </div>
+    <script>
+      
+      function loaded () {
+      var myScroll = new IScroll('.rule', {
+      scrollX: true,
+      scrollY: false,
+      snap: '.tooth',
+      probeType: 2
+      });
+      myScroll.on('scroll', function(e) {
+      console.log('x:' + this.x);
+      console.dir('pageX:' + this.currentPage.pageX);
+      });
+      }
+
+      $(function() {
+      loaded();
+      });
+      
+    </script>
+  </body>
+</html>
